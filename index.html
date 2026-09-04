@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Desired state for a minimal NetBird Agent Network demo on DigitalOcean — keyless, identity-gated LLM access proven by an isolated agent — the agent-network package's second-provider deployment under the Compute Provider Standard.">
+  <title>agent-network-digitalocean — getcolors deployment</title>
+  <style>
+    :root{color-scheme:light;--ink:#1f2328;--muted:#59636e;--line:#d0d7de;--soft:#f6f8fa;--blue:#0969da;--green:#1a7f37}*{box-sizing:border-box}body{margin:0;color:var(--ink);font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:920px;margin:auto;padding:64px 28px 100px}h1{font-size:48px;line-height:1.05;margin:0}h2{margin-top:54px;padding-bottom:8px;border-bottom:1px solid var(--line)}.lead{font-size:20px;color:var(--muted);max-width:790px}code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}pre{padding:18px;overflow:auto;border:1px solid var(--line);border-radius:8px;background:var(--soft)}:not(pre)>code{padding:.12em .35em;border-radius:5px;background:var(--soft)}a{color:var(--blue)}.eyebrow{color:var(--green);font-weight:700;letter-spacing:.08em}.callout{padding:16px 18px;border-left:4px solid var(--green);background:#dafbe1}.warn{padding:16px 18px;border-left:4px solid #bf8700;background:#fff8c5}@media(max-width:650px){main{padding-top:38px}h1{font-size:36px}}
+  </style>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4VKP1WY4QJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-4VKP1WY4QJ',{page_title:'agent-network-digitalocean — getcolors deployment'});</script>
+<script src="https://rybbit.getcolors.ai/api/script.js" data-site-id="9fb9c41a6d49" defer></script>
+</head>
+<body><main>
+  <p class="eyebrow">DEPLOYMENT · DIGITALOCEAN · AGENT NETWORK · KEYLESS LLM ACCESS</p>
+  <h1>agent-network-digitalocean</h1>
+  <p class="lead">Desired state for one minimal NetBird Agent Network demo: Traefik, the combined <code>netbird-server</code>, the dashboard in agent-network view, the private reverse proxy — and an isolated agent with no key and no internet route — on a single guarded DigitalOcean Droplet in Amsterdam.</p>
+
+  <div class="callout"><strong>Same package, second provider:</strong> this is the <a href="https://github.com/getcolors/agent-network">agent-network Package Skill</a> that also runs <a href="https://github.com/getcolors/agent-network-vultr">agent-network-vultr</a>, selected onto DigitalOcean by <code>provider-compute: digitalocean</code> and the <code>digitalocean-*</code> keys alone, under the workspace Compute Provider Standard. The isolation is still the demo: the agent container holds no API key and has no internet route, and its requests reach Anthropic only through the overlay and the policy-gated proxy.</div>
+
+  <h2>Endpoints</h2>
+  <p><a href="https://agent-network-digitalocean.bigconfig.online">agent-network-digitalocean.bigconfig.online</a> serves the dashboard, the REST API, management and signal gRPC, the relay and the embedded IdP; one generated label beneath it is the keyless agent-network endpoint, tunnel-only. The firewall admits 22 from the SSH sources, 80 and 443 from the HTTP sources, and STUN on UDP 3478 from the STUN sources; nothing else.</p>
+
+  <h2>Use</h2>
+  <pre><code>direnv allow
+./green build
+./green create --dry-run
+./green create</code></pre>
+  <p>Build and dry-run are credential-free and never read <code>~/.ssh</code>. Real creation converges the droplet in the region's default VPC, its cloud firewall, the two Cloudflare records and the gateway stack, bootstraps the control plane headlessly, builds the agent, and proves every claim. Deletion stays guarded by <code>compute-prevent-destroy: true</code>; a change of <code>provider-compute</code> on a profile with a machine in state is refused.</p>
+
+  <h2>The machine keypair is not in this repository</h2>
+  <div class="warn">Keygen mode: <code>colors.yml</code> carries no <code>digitalocean-ssh-keys</code>, so the package generates and owns <code>~/.ssh/agent-network-digitalocean</code> outside the checkout. Cloning this repository elsewhere does not carry machine access.</div>
+
+  <h2>Provenance</h2>
+  <p><code>colors.yml</code> (the only editable desired state), the three installed agent-network Package Skill payloads and their lockfile, root launchers copied from those payloads, toolchain files, documentation, and <code>verification.md</code>. Credentials live in gitignored <code>.envrc.private</code>; generated output in <code>.colors/</code> is never committed.</p>
+
+  <h2>Source</h2>
+  <p><a href="https://github.com/getcolors/agent-network-digitalocean">This deployment on GitHub</a> · <a href="https://github.com/getcolors/agent-network">Package Skill source</a> · <a href="https://github.com/getcolors/workspace/blob/main/standards/compute-provider.md">Compute Provider Standard</a></p>
+</main></body>
+</html>
