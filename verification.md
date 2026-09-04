@@ -37,3 +37,12 @@ Standard §4 on a live state.
 - The Vultr side of the package, which `agent-network-vultr` covers.
 - Real completions: the Anthropic key is deliberately fake, so the keyless
   probes prove the relayed 401, not a billed response.
+
+## After verification
+
+Deleted the same day under a fresh, explicit authorization, with the one-run
+`COLORS_PAR_COMPUTE_PREVENT_DESTROY=false` override: cleanup play, the two DNS
+records, `~/.ssh/config` block, droplet and firewall, account key, local
+keypair, in that order, exit 0. Verified read-only afterwards that nothing
+named after the profile survives at the provider. The repository, `colors.yml`
+and the R2 state remain, so the deployment is re-creatable with `./green create`.
