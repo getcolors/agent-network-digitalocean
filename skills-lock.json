@@ -5,19 +5,19 @@
       "source": "getcolors/agent-network",
       "sourceType": "github",
       "skillPath": "skills/package-agent-network-blue/SKILL.md",
-      "computedHash": "689b094e8fb07c848e90c7bd87a3cc473833bf9966cf6404d90dad602698ac10"
+      "computedHash": "fe4194a6b4d60124cba1e3752dcb977b61eb42fb4373bc63234cb12c3fb9b24d"
     },
     "package-agent-network-green": {
       "source": "getcolors/agent-network",
       "sourceType": "github",
       "skillPath": "skills/package-agent-network-green/SKILL.md",
-      "computedHash": "20fa9d040e1d94b16647a886e135c62075f069de5336489f8d62e67978fa1006"
+      "computedHash": "d69ae5ea4bfb77e207e515c7bbdb40b8a4084df5488e1da59a43ce05a76d68dd"
     },
     "package-agent-network-red": {
       "source": "getcolors/agent-network",
       "sourceType": "github",
       "skillPath": "skills/package-agent-network-red/SKILL.md",
-      "computedHash": "3536d722a1ad8d5fde3911d5fa3f3fad95457beb7f0900c82f8765e6581baafd"
+      "computedHash": "9ba2b99ef8071506126a43bfe3fb7df3868cbfddb894f8dee79f35e43b768637"
     }
   }
 }
